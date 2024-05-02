@@ -8,6 +8,11 @@ import { take } from 'rxjs'
 })
 export class AppComponent implements OnInit {
   private contactService = inject(ContactService)
+  currPage: string = 'home'
+
+  onChangePage = (page: string) => {
+    this.currPage = page
+  }
 
   ngOnInit() {
     this.contactService.loadContacts()
