@@ -5,19 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContactIndexComponent } from './pages/contact-index/contact-index.component';
-import { ContactIndexdetailsComponent } from './pages/contact-indexdetails/contact-indexdetails.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { StatisticPageComponent } from './pages/statistic-page/statistic-page.component';
 import { ContactListComponent } from './cmps/contact-list/contact-list.component';
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component';
 import { ChartComponent } from './cmps/chart/chart.component';
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component';
+import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactIndexComponent,
-    ContactIndexdetailsComponent,
+    ContactDetailsComponent,
     HomePageComponent,
     StatisticPageComponent,
     ContactListComponent,
