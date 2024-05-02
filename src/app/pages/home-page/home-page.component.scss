@@ -4,12 +4,17 @@
     flex-direction: column;
     margin-inline: 3em;
     justify-content: center;
-   
+
     @media (max-width:600px) {
         margin-inline: 1em;
     }
 
+    .user-greet {
+        font-size: 1.2em;
+    }
+
     .coins-info {
+        font-size: 1em;
         display: flex;
         align-items: center;
         gap: 5px;
