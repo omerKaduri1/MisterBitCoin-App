@@ -1,5 +1,10 @@
-.contact-list{
+.contact-list {
     display: flex;
     flex-direction: column;
     gap: .7em;
+    margin-inline: 3em;
+
+    @media (max-width:600px) {
+        margin-inline: 1em;
+    }
 }
