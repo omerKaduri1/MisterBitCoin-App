@@ -1,0 +1,24 @@
+.contact-details {
+    margin-inline: 1.5em;
+    margin-block-start: 1em;
+
+    img {
+        height: 80px;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: space-between;
+        margin-block-end: 2em;
+
+        button {
+            border: none;
+            background-color: transparent;
+
+            img {
+                height: 25px;
+            }
+        }
+    }
+
+}

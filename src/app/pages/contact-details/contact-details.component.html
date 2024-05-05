@@ -1,4 +1,12 @@
 <section *ngIf="contact$ | async as contact" class="contact-details">
+    <section class="actions">
+        <button (click)="onBack()">
+            <img src="../../../assets/img/back.png" alt="">
+        </button>
+        <button routerLink="/contact/edit/{{contact._id}}">
+            <img src="../../../assets/img/edit.png" alt="">
+        </button>
+    </section>
     <img src="../../../assets/img/users.png" alt="contact">
     <p>Name: {{contact.name}}</p>
     <p>Phone: {{contact.phone}}</p>
