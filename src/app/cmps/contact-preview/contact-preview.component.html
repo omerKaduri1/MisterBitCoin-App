@@ -1,8 +1,14 @@
 <section class="contact-preview">
-    <img src="../../../assets/img/users.png" alt="" />
-    <span routerLink="/contact/{{contact._id}}">{{contact.name}}</span>
-    <section>
-        <button (click)="onRemoveContact()" class="remove-btn">X</button>
-        <a routerLink="/contact/edit/{{contact._id}}">Edit</a>
+    <section class="contact-info">
+        <img src="../../../assets/img/users.png" alt="" />
+        <span routerLink="/contact/{{contact._id}}">{{contact.name}}</span>
+    </section>
+    <section class="actions">
+        <button (click)="onRemoveContact()" class="remove-btn">
+            <img src="../../../assets/img/delete.png" alt="">
+        </button>
+        <button routerLink="/contact/edit/{{contact._id}}">
+            <img class="edit-img" src="../../../assets/img/edit.png" alt="edit">
+        </button>
     </section>
 </section>

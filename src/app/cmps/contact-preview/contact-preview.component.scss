@@ -1,14 +1,39 @@
-.contact-preview{
+.contact-preview {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: space-between;
     gap: .7em;
     background-color: rgba(202, 199, 199, 0.4);
     border-radius: 20em;
     padding: .8em;
-    
-    span{
-        color: #1a1919;
+
+    .contact-info {
+        display: flex;
+        align-items: center;
         cursor: pointer;
+        gap: 5px;
+
+        span {
+            color: #1a1919;
+            font-size: 1.1em;
+        }
     }
+
+    .actions {
+        display: flex;
+
+        button {
+            border: none;
+            background-color: transparent;
+
+            img {
+                height: 25px;
+            }
+
+            .edit-img {
+                height: 20px;
+            }
+        }
+    }
+
 }

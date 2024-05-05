@@ -15,8 +15,8 @@ a {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
 
-    &:hover {
-        text-decoration: underline;
-    }
+button {
+    cursor: pointer;
 }
