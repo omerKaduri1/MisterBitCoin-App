@@ -13,7 +13,8 @@ import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.com
 import { FormsModule } from '@angular/forms'
 import { AppHeaderComponent } from './cmps/app-header/app-header.component'
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
-import { ContactEditComponent } from './pages/contact-edit/contact-edit.component'
+import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
+import { LoaderComponent } from './cmps/loader/loader.component'
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
     ChartComponent,
     ContactFilterComponent,
     AppHeaderComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
