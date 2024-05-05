@@ -13,7 +13,7 @@ export class ContactService {
 
     private _contacts$ = new BehaviorSubject<Contact[]>([])
     public contacts$ = this._contacts$.asObservable()
-    
+
     private _filterBy$ = new BehaviorSubject<ContactFilter>({ term: '' });
     public filterBy$ = this._filterBy$.asObservable()
 
@@ -41,10 +41,10 @@ export class ContactService {
             )
     }
 
-    // public getContactById(id: string): Observable<Contact> {
-    //     return from(storageService.get(ENTITY, id))
-    //         .pipe(catchError(err => throwError(() => `Contact id ${id} not found!`)))
-    // }
+    public getContactById(id: string): Observable<Contact> {
+        return from(storageService.get<Contact>(ENTITY, id))
+            .pipe(catchError(err => throwError(() => `Contact id ${id} not found!`)))
+    }
 
     public deleteContact(id: string) {
         return from(storageService.remove(ENTITY, id))

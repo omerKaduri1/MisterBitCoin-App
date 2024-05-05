@@ -1,6 +1,5 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
-import axios from 'axios'
 
 const API_URL = 'https://blockchain.info/tobtc'
 
@@ -9,8 +8,6 @@ const API_URL = 'https://blockchain.info/tobtc'
 })
 
 export class BitcoinService {
-
-    TRADE_VOLUME_KEY = 'tradeVolume'
 
     constructor(private http: HttpClient) { }
 

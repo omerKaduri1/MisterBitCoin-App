@@ -1,1 +1,6 @@
-<p>contact-indexdetails works!</p>
+<section *ngIf="contact$ | async as contact" class="contact-details">
+    <img src="../../../assets/img/users.png" alt="contact">
+    <p>Name: {{contact.name}}</p>
+    <p>Phone: {{contact.phone}}</p>
+    <p>Email: {{contact.email}}</p>
+</section>
