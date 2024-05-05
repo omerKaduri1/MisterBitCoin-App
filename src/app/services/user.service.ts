@@ -1,14 +1,11 @@
 import { Injectable } from "@angular/core"
-
-const ENTITY = 'user'
-
+import { User } from "../models/user.model"
 @Injectable({
     providedIn: 'root'
 })
-
 export class UserService {
-
-    public getUser() {
+    
+    getUser(): User {
         return {
             name: "Omer Kaduri",
             coins: 100,

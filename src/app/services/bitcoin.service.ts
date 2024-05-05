@@ -1,3 +1,4 @@
+import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import axios from 'axios'
 
@@ -9,16 +10,12 @@ const API_URL = 'https://blockchain.info/tobtc'
 
 export class BitcoinService {
 
-    constructor() { }
+    TRADE_VOLUME_KEY = 'tradeVolume'
 
-   async getRate(coins: number): Promise<number> {
-        try {
-            const response = await axios.get(`${API_URL}?currency=USD&value=${coins}`)
-            return response.data
-        } catch (error) {
-            // Handle errors
-            throw new Error('Error getting Bitcoin rate');
-        }
+    constructor(private http: HttpClient) { }
+
+    getRate(coins: number) {
+        return this.http.get<string>(`${API_URL}?currency=USD&value=${coins}`)
     }
 
     getMarketPrice() {
