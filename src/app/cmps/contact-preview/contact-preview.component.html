@@ -1,4 +1,8 @@
-<section class="contact-preview" routerLink="/contact/{{contact._id}}">
+<section class="contact-preview">
     <img src="../../../assets/img/users.png" alt="" />
-    <span>{{contact.name}}</span>
+    <span routerLink="/contact/{{contact._id}}">{{contact.name}}</span>
+    <section>
+        <button (click)="onRemoveContact()" class="remove-btn">X</button>
+        <a routerLink="/contact/edit/{{contact._id}}">Edit</a>
+    </section>
 </section>
