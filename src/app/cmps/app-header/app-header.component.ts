@@ -7,10 +7,4 @@ import { Component, EventEmitter, Output, output } from '@angular/core'
 })
 export class AppHeaderComponent {
 
-  @Output() changePage = new EventEmitter<string>()
-
-  onChangePage = (page: string) => {
-    this.changePage.emit(page)
-  }
-
 }

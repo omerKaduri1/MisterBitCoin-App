@@ -1,11 +1,6 @@
 <section class="main-app">
-    <app-header (changePage)="onChangePage($event)"></app-header>
+    <app-header></app-header>
     <main class="container">
-        <div *ngIf="currPage === 'home'">
-            <home-page></home-page>
-        </div>
-        <div *ngIf="currPage === 'contacts'">
-            <contact-index></contact-index>
-        </div>
+        <router-outlet></router-outlet>
     </main>
 </section>
