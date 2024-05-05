@@ -2,11 +2,11 @@
     margin-block: 1em;
     display: flex;
     flex-direction: column;
-    margin-inline: 3em;
+    margin-inline: 1.5em;
     justify-content: center;
 
     @media (max-width:600px) {
-        margin-inline: 1em;
+        margin-inline: 1.5em;
     }
 
     .user-greet {
