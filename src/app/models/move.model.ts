@@ -1,6 +1,6 @@
 export interface Move {
   toId: string
   to: string
-  at: number
+  at: number | Date
   amount: number
 }
