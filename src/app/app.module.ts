@@ -14,7 +14,8 @@ import { FormsModule } from '@angular/forms'
 import { AppHeaderComponent } from './cmps/app-header/app-header.component'
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
-import { LoaderComponent } from './cmps/loader/loader.component'
+import { LoaderComponent } from './cmps/loader/loader.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component'
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoaderComponent } from './cmps/loader/loader.component'
     ContactFilterComponent,
     AppHeaderComponent,
     ContactEditComponent,
-    LoaderComponent
+    LoaderComponent,
+    SignupPageComponent
   ],
   imports: [
     BrowserModule,

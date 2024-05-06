@@ -5,6 +5,7 @@ import { ContactIndexComponent } from './pages/contact-index/contact-index.compo
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component'
 import { contactResolver } from './resolvers/contact.resolver'
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component'
+import { SignupPageComponent } from './pages/signup-page/signup-page.component'
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
       { path: 'edit/:id', component: ContactEditComponent, resolve: { contact: contactResolver } }
     ]
   },
+  { path: 'signup', component: SignupPageComponent },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
   { path: 'contact/:id', component: ContactDetailsComponent, resolve: { contact: contactResolver } }
 ]
