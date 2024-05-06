@@ -1,0 +1,47 @@
+.move-preview {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 70px;
+    margin-bottom: 20px;
+
+    &:hover {
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
+    }
+
+
+    .content {
+        display: flex;
+        flex-direction: column;
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .label {
+                font-weight: bold;
+                color: #333;
+                margin-right: 10px;
+            }
+
+            .value {
+                color: #333;
+            }
+
+        }
+
+        .amount {
+            font-size: 18px;
+            color: #007bff;
+            margin: 3px;
+        }
+
+        .at {
+            font-size: 14px;
+            color: #666;
+        }
+    }
+
+}

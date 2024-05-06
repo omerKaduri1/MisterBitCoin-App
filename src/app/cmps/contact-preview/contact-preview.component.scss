@@ -3,9 +3,14 @@
     align-items: center;
     justify-content: space-between;
     gap: .7em;
-    background-color: rgba(202, 199, 199, 0.4);
+    background-color: rgba(187, 183, 183, 0.4);
     border-radius: 20em;
     padding: .8em;
+
+    &:hover {
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
+    }
 
     .contact-info {
         display: flex;

@@ -1,8 +1,7 @@
 <section class="transfer-fund">
     <p>Transfer coins to {{contact$.name}}:</p>
     <form (ngSubmit)="onTransfer()">
-        <label for="amount">Amount:</label>
-        <input type="number" name="amount" id="amount" [(ngModel)]="amount" [max]="maxCoins$ | async">
+        <input type="number" name="amount" id="amount" [(ngModel)]="amount" placeholder="Enter Amount" >
         <ng-container *ngIf="transferForm.controls['amount'] as amount">
             <p *ngIf="amount.touched && amount.invalid" class="errors">
                 <span *ngIf="amount.errors?.['required']">Amount is required!</span>

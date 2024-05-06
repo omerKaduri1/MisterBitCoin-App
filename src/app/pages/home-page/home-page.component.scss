@@ -5,12 +5,19 @@
     margin-inline: 1.5em;
     justify-content: center;
 
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     @media (max-width:600px) {
         margin-inline: 1.5em;
     }
 
     .user-greet {
-        font-size: 1.2em;
+        font-size: 1.1em;
+        font-weight: 500;
     }
 
     .coins-info {

@@ -10,7 +10,7 @@ import { ContactListComponent } from './cmps/contact-list/contact-list.component
 import { ContactPreviewComponent } from './cmps/contact-preview/contact-preview.component'
 import { ChartComponent } from './cmps/chart/chart.component'
 import { ContactFilterComponent } from './cmps/contact-filter/contact-filter.component'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AppHeaderComponent } from './cmps/app-header/app-header.component'
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
@@ -43,7 +43,8 @@ import { MovePreviewComponent } from './cmps/move-preview/move-preview.component
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

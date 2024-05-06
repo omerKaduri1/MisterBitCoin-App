@@ -1,13 +1,15 @@
 <section *ngIf="user$ |async as user" class="home-page">
-    <p class="user-greet">Hello {{user.name}}!</p>
-    <section>
-        <section class="coins-info">
-            <img src="../../../assets/img/coins.png" alt="coins">
-            <p>Coins: {{user.coins}}</p>
-        </section>
-        <section class="coins-info">
-            <img src="../../../assets/img/bitcoin.png" alt="bitcoin">
-            <p>BTC: {{BTC$ | async}}</p>
+    <section class="user-info">
+        <p class="user-greet">Hello {{user.name}}!</p>
+        <section>
+            <section class="coins-info">
+                <img src="../../../assets/img/coins.png" alt="coins">
+                <p>Coins: ${{user.coins}}</p>
+            </section>
+            <section class="coins-info">
+                <img src="../../../assets/img/bitcoin.png" alt="bitcoin">
+                <p>BTC: ₿ {{BTC$ | async}}</p>
+            </section>
         </section>
         <moves-list title="Your last 3 Moves:" [moves$]="moves$"></moves-list>
     </section>

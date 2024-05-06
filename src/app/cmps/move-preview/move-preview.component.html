@@ -1,5 +1,10 @@
 <article class="move-preview">
-    <p>To: {{move.to}}</p>
-    <p>At: {{move.at | date: "dd/MM/yy EEEE, HH:mm"}}</p>
-    <p>Amount: {{move.amount}}</p>
+    <div class="content">
+        <div class="info">
+            <p class="label">Destination:</p>
+            <p class="value">{{ move.to }}</p>
+        </div>
+        <p class="amount">₿ {{BTCValue$ | async}} | ${{ move.amount }} </p>
+        <p class="at">Date: {{ move.at | date: "dd.MM.yyyy, HH:mm:ss" }}</p>
+    </div>
 </article>
