@@ -26,11 +26,17 @@
 
         & div {
             cursor: pointer;
+
+            &.active {
+                font-weight: 700;
+                font-size: 1.05em;
+            }
         }
     }
 
     & span {
         color: rgb(18, 122, 18);
     }
+
 
 }
