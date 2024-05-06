@@ -13,4 +13,5 @@
     <p>Email: {{contact.email}}</p>
 
     <transfer-fund [contact$]="contact" [onTransferCoins]="onTransferCoins" [maxCoins$]="maxCoins$"></transfer-fund>
+    <moves-list title="Your Moves" [moves$]="moves$"></moves-list>
 </section>

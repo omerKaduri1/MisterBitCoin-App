@@ -9,5 +9,6 @@
             <img src="../../../assets/img/bitcoin.png" alt="bitcoin">
             <p>BTC: {{BTC$ | async}}</p>
         </section>
+        <moves-list title="Your last 3 Moves:" [moves$]="moves$"></moves-list>
     </section>
 </section>

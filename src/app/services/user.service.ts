@@ -44,7 +44,7 @@ export class UserService {
         const move: Move = {
             toId: contact._id,
             to: contact.name,
-            at: new Date(),
+            at:  Date.now(),
             amount
         }
 

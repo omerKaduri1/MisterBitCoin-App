@@ -17,7 +17,8 @@ import { ContactEditComponent } from './pages/contact-edit/contact-edit.componen
 import { LoaderComponent } from './cmps/loader/loader.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
-import { MovesListComponent } from './cmps/moves-list/moves-list.component'
+import { MovesListComponent } from './cmps/moves-list/moves-list.component';
+import { MovePreviewComponent } from './cmps/move-preview/move-preview.component'
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MovesListComponent } from './cmps/moves-list/moves-list.component'
     LoaderComponent,
     SignupPageComponent,
     TransferFundComponent,
-    MovesListComponent
+    MovesListComponent,
+    MovePreviewComponent
   ],
   imports: [
     BrowserModule,
