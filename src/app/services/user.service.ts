@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 import { User } from "../models/user.model"
 import { Contact } from "../models/contact.model"
-import { BehaviorSubject } from "rxjs"
+import { BehaviorSubject, Observable, map } from "rxjs"
 import { Move } from "../models/move.model"
 @Injectable({
     providedIn: 'root'
@@ -14,6 +14,16 @@ export class UserService {
         moves: []
     })
     public loggedInUser$ = this._loggedInUser$.asObservable()
+    
+    constructor() {
+        const storedUser = localStorage.getItem('user')
+        if (storedUser) {
+            this._loggedInUser$.next(JSON.parse(storedUser))
+        }
+        this._loggedInUser$.subscribe(user => {
+            localStorage.setItem('user', JSON.stringify(user))
+        })
+    }
 
     getUser(): User { // Not in use
         return this._loggedInUser$.value
@@ -43,6 +53,21 @@ export class UserService {
         this._loggedInUser$.next({
             ...currUser,
             moves: updatedMoves
+        })
+    }
+
+    getUserCoins(): Observable<number> {
+        return this._loggedInUser$.pipe(
+            map(user => user.coins)
+        )
+    }
+
+    reduceCoins(amount: number) {
+        const currUser = this._loggedInUser$.value
+        const updatedCoins = currUser.coins - amount
+        this._loggedInUser$.next({
+            ...currUser,
+            coins: updatedCoins
         })
     }
 }

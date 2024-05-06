@@ -11,4 +11,6 @@
     <p>Name: {{contact.name}}</p>
     <p>Phone: {{contact.phone}}</p>
     <p>Email: {{contact.email}}</p>
+
+    <transfer-fund [contact$]="contact" [onTransferCoins]="onTransferCoins" [maxCoins$]="maxCoins$"></transfer-fund>
 </section>

@@ -15,7 +15,9 @@ import { AppHeaderComponent } from './cmps/app-header/app-header.component'
 import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
 import { ContactEditComponent } from './pages/contact-edit/contact-edit.component';
 import { LoaderComponent } from './cmps/loader/loader.component';
-import { SignupPageComponent } from './pages/signup-page/signup-page.component'
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
+import { MovesListComponent } from './cmps/moves-list/moves-list.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component'
     AppHeaderComponent,
     ContactEditComponent,
     LoaderComponent,
-    SignupPageComponent
+    SignupPageComponent,
+    TransferFundComponent,
+    MovesListComponent
   ],
   imports: [
     BrowserModule,
