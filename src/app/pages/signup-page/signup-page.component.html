@@ -1,0 +1,8 @@
+<section class="signup-page">
+    <img src="../../../assets/img/bitcoin.png" alt="bitcoin">
+    <form (ngSubmit)="onSignup()" #signupForm="ngForm">
+        <label>Please enter your name:</label>
+        <input type="text" name="name" id="name" [(ngModel)]="userName" required>
+        <button type="submit" [disabled]="!signupForm.valid">Sign up</button>
+    </form>
+</section>
