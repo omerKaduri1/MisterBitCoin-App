@@ -5,6 +5,6 @@
             <p class="value">{{ move.to }}</p>
         </div>
         <p class="amount">₿ {{BTCValue$ | async}} | ${{ move.amount }} </p>
-        <p class="at">Date: {{ move.at | date: "dd.MM.yyyy, HH:mm:ss" }}</p>
+        <p class="at">{{ move.at | date: "dd.MM.yyyy, HH:mm:ss" }}</p>
     </div>
 </article>

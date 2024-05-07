@@ -22,9 +22,8 @@ async function get<T extends EntityId>(entityType: string, entityId: string): Pr
     return entity
 }
 
-async function post<T extends EntityId>(entityType: string, newEntity: T): Promise<T> {
-    newEntity = JSON.parse(JSON.stringify(newEntity))
-    newEntity._id = _makeId()
+async function post<T>(entityType: string, newEntity: T): Promise<T> {
+    newEntity = { ...newEntity, _id: _makeId() }
     const entities = await query<T>(entityType)
     entities.push(newEntity)
     _save(entityType, entities)

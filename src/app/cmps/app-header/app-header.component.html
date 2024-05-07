@@ -1,5 +1,9 @@
 <p routerLink="/home">MisterBIT<span>Coin</span></p>
 <nav ngClass="nav">
-    <div routerLink="/home" routerLinkActive="active">Home</div>
+    <!-- <div routerLink="/home" routerLinkActive="active">Home</div> -->
     <div routerLink="/contact" routerLinkActive="active">Contacts</div>
+    <section class="auth" *ngIf="loggedInUser$ | async as user">
+        <!-- <h3>Hello {{ user.name | titlecase }}!</h3> -->
+        <button (click)="onLogout()">Logout</button>
+    </section>
 </nav>

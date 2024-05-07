@@ -1,5 +1,5 @@
 <section class="contact-edit">
-    <h2>{{contact ? "Edit": "Add"}}</h2>
+    <h2>{{contact.name ? "Edit": "Add"}} Contact</h2>
     <form (ngSubmit)="onSaveContact()">
         <label for="name">Name</label>
         <input [(ngModel)]="contact.name" placeholder="Name" type="text" name="name" id="name">
