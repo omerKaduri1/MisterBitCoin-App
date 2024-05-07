@@ -32,7 +32,6 @@ export class UserService {
     // }
     constructor() {
         const users = JSON.parse(localStorage.getItem(ENTITY) || 'null')
-        console.log('users:', users)
         if (!users || users.length === 0) {
             localStorage.setItem(ENTITY, JSON.stringify([]))
         }
@@ -40,10 +39,6 @@ export class UserService {
 
     private _loggedInUser$ = new BehaviorSubject<User>(utilService.loadFromSession(ENTITY_LOGGEDIN_USER))
     public loggedInUser$ = this._loggedInUser$.asObservable()
-
-    getUser(): User { // Not in use
-        return this._loggedInUser$.value
-    }
 
     // signup(name: string) {
     //     const newUser: User = {
@@ -62,13 +57,18 @@ export class UserService {
                 ? of(user)
                 : from(storageService.post(ENTITY, this._createUser(name)))
             ),
-            tap(user => this._saveLocalUser(user as User))
+            tap(user =>
+                // this._saveLocalUser(user as User)
+                sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(user)
+            )
         )
     }
 
     public logout() {
         return of(null).pipe(
-            tap(() => this._saveLocalUser(null))
+            tap(() =>
+                sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(null)
+            )
         )
     }
 
@@ -78,24 +78,13 @@ export class UserService {
         const loggedInUser = { ...this.getLoggedInUser() }
         loggedInUser.coins -= amount
         loggedInUser.moves.unshift(newMove)
+        console.log('loggedInUser:', loggedInUser)
         return from(storageService.put(ENTITY, loggedInUser)).pipe(
-            tap(() => this._saveLocalUser(loggedInUser))
-        )
-    }
-
-    getUserCoins(): Observable<number> {
-        return this._loggedInUser$.pipe(
-            map(user => user.coins)
-        )
-    }
-
-    reduceCoins(amount: number) {
-        const currUser = this._loggedInUser$.value
-        const updatedCoins = currUser.coins - amount
-        this._loggedInUser$.next({
-            ...currUser,
-            coins: updatedCoins
-        })
+            tap(() => {
+                console.log('from tap')
+                sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(loggedInUser)
+            })
+        ).subscribe()
     }
 
     getLoggedInUser(): User {
@@ -119,11 +108,14 @@ export class UserService {
         }
     }
 
-    _saveLocalUser(user: User | null) {
-        if (user !== null) {
-            this._loggedInUser$.next({ ...user })
-        } else { }
-        utilService.saveToSession(ENTITY_LOGGEDIN_USER, user)
-    }
-
+    // _saveLocalUser(user: User | null) {
+    //     if (user !== null) {
+    //         this._loggedInUser$.next({ ...user })
+    //     } else { }
+    //     utilService.saveToSession(ENTITY_LOGGEDIN_USER, user)
+    // }
+    // _saveLocalUser(user: User | null) {
+    //     this._loggedInUser$.next(user && { ...user })
+    //     utilService.saveToSession(ENTITY_LOGGEDIN_USER, user)
+    // }
 }

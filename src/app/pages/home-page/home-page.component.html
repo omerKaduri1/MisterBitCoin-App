@@ -11,6 +11,6 @@
                 <p>BTC: ₿ {{BTC$ | async}}</p>
             </section>
         </section>
-        <moves-list title="Your last 3 Moves:" [moves$]="moves$"></moves-list>
+        <moves-list *ngIf="userMoves$ | async as userMoves" [moves]="userMoves" [contact]="null"></moves-list>
     </section>
 </section>

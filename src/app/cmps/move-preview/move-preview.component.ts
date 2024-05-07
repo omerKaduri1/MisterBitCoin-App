@@ -3,6 +3,7 @@ import { Move } from '../../models/move.model';
 import { Observable, switchMap } from 'rxjs';
 import { UserService } from '../../services/user.service';
 import { BitcoinService } from '../../services/bitcoin.service';
+import { Contact } from '../../models/contact.model';
 
 @Component({
   selector: 'move-preview',

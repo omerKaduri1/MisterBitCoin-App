@@ -30,14 +30,16 @@ async function post<T>(entityType: string, newEntity: T): Promise<T> {
     return newEntity
 }
 
-async function put<T extends EntityId>(entityType: string, updatedEntity: T): Promise<T> {
+function put<T extends EntityId>(entityType: string, updatedEntity: T): Promise<T> {
     updatedEntity = JSON.parse(JSON.stringify(updatedEntity))
-    const entities = await query<T>(entityType)
-    const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
-    if (idx < 0) throw new Error(`Update failed, cannot find entity with id: ${updatedEntity._id} in: ${entityType}`)
-    entities.splice(idx, 1, updatedEntity)
-    _save(entityType, entities)
-    return updatedEntity
+    return query<T>(entityType).then((entities) => {
+
+        const idx = entities.findIndex(entity => entity._id === updatedEntity._id)
+        if (idx < 0) throw new Error(`Update failed, cannot find entity with id: ${updatedEntity._id} in: ${entityType}`)
+        entities.splice(idx, 1, updatedEntity)
+        _save(entityType, entities)
+        return Promise.resolve(updatedEntity)
+    })
 }
 
 async function remove<T extends EntityId>(entityType: string, entityId: string): Promise<void> {

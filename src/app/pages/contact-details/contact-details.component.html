@@ -1,17 +1,24 @@
 <section *ngIf="contact$ | async as contact" class="contact-details">
-    <section class="actions">
-        <button (click)="onBack()">
-            <img src="../../../assets/img/back.png" alt="">
-        </button>
-        <button routerLink="/contact/edit/{{contact._id}}">
-            <img src="../../../assets/img/edit.png" alt="">
-        </button>
-    </section>
-    <img src="../../../assets/img/users.png" alt="contact">
-    <p>Name: {{contact.name}}</p>
-    <p>Phone: {{contact.phone}}</p>
-    <p>Email: {{contact.email}}</p>
+    <section class="contact-data-container" *ngIf="user$ | async as user">
+        <section class="actions">
+            <button (click)="onBack()">
+                <img src="../../../assets/img/back.png" alt="">
+            </button>
+            <button routerLink="/contact/edit/{{contact._id}}">
+                <img src="../../../assets/img/edit.png" alt="">
+            </button>
+        </section>
+        <section class="contact-info">
+            <img src="../../../assets/img/users.png" alt="contact">
+            <p>Name: {{contact.name}}</p>
+            <p>Phone: {{contact.phone}}</p>
+            <p>Email: {{contact.email}}</p>
+        </section>
 
-    <transfer-fund [contact$]="contact" [onTransferCoins]="onTransferCoins" [maxCoins$]="maxCoins$"></transfer-fund>
-    <moves-list title="Your Moves:" [moves$]="moves$"></moves-list>
+        <transfer-fund [contact$]="contact" (transferCoins)="onTransferCoins($event)"
+            [maxCoins]="user.coins"></transfer-fund>
+        <section *ngIf="contactMoves$ | async as moves">
+            <moves-list *ngIf="moves.length" [moves]="moves" [contact]="contact"></moves-list>
+        </section>
+    </section>
 </section>
