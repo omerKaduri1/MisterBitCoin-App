@@ -32,4 +32,9 @@ export class ContactEditComponent implements OnInit {
         error: err => console.log('err:', err)
       })
   }
+
+  onBack() {
+    this.router.navigateByUrl('/contact')
+  }
+
 }

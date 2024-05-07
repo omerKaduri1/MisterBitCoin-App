@@ -5,6 +5,18 @@ html {
 
 body {
     margin: 0;
+
+    &:has(.click-outside) {
+
+        .click-outside,
+        .click-outside * {
+            pointer-events: all;
+        }
+
+        :not(.click-outside, .click-outside *) {
+            pointer-events: none;
+        }
+    }
 }
 
 * {
