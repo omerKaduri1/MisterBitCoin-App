@@ -19,7 +19,8 @@ import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 import { MovesListComponent } from './cmps/moves-list/moves-list.component';
 import { MovePreviewComponent } from './cmps/move-preview/move-preview.component';
-import { ClickOutsideDirective } from './directives/click-outside.directive'
+import { ClickOutsideDirective } from './directives/click-outside.directive';
+import { MsgComponent } from './cmps/msg/msg.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ClickOutsideDirective } from './directives/click-outside.directive'
     TransferFundComponent,
     MovesListComponent,
     MovePreviewComponent,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    MsgComponent
   ],
   imports: [
     BrowserModule,

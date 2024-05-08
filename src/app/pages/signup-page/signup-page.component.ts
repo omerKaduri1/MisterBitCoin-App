@@ -20,7 +20,7 @@ export class SignupPageComponent {
     this.userService.signup(this.userName)
       .pipe(take(1))
       .subscribe(() => {
-        this.router.navigate([''])
-      });
+        this.router.navigate(['/home'])
+      })
   }
 }

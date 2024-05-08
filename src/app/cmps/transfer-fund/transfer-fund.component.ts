@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core'
-import { UserService } from '../../services/user.service'
 import { Contact } from '../../models/contact.model'
-import { Observable } from 'rxjs'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
-import { isTransferValid } from '../../custom-validators/transfer.validators'
 import { User } from '../../models/user.model'
+import { MsgService } from '../../services/msg.service'
 
 @Component({
   selector: 'transfer-fund',
@@ -16,30 +13,17 @@ export class TransferFundComponent {
   @Input() maxCoins!: number
   @Output() transferCoins = new EventEmitter()
 
-  // @Input() onTransferCoins!: ((contact: Contact, amount: number) => void)
+  private msgService = inject(MsgService)
+
   amount!: number
   user!: User
 
-  // private fb = inject(FormBuilder)
-  // transferForm!: FormGroup
-
-  // constructor() {
-  //   this.transferForm = this.fb.group({
-  //     amount: ['', [Validators.required, isTransferValid]]
-  //   })
-  // }
-
   onTransfer(): void {
     if (this.maxCoins < this.amount) {
-      return
-      // this.msgService.setErrorMsg('Not enough coins!')
+      this.msgService.setErrorMsg('Not enough coins!')
     } else {
       this.transferCoins.emit(this.amount)
     }
-    // this.amount = null
-
   }
-  // onTransfer() {
-  //   this.onTransferCoins(this.contact$, this.amount)
-  // }
+
 }

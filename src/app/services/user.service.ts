@@ -13,23 +13,6 @@ const ENTITY_LOGGEDIN_USER = 'loggedinUser'
 })
 export class UserService {
 
-
-    // private _loggedInUser$ = new BehaviorSubject<User>({
-    //     name: "Omer Kaduri",
-    //     coins: 100,
-    //     moves: []
-    // })
-    // public loggedInUser$ = this._loggedInUser$.asObservable()
-
-    // constructor() {
-    //     const storedUser = localStorage.getItem('user')
-    //     if (storedUser) {
-    //         this._loggedInUser$.next(JSON.parse(storedUser))
-    //     }
-    //     this._loggedInUser$.subscribe(user => {
-    //         localStorage.setItem('user', JSON.stringify(user))
-    //     })
-    // }
     constructor() {
         const users = JSON.parse(localStorage.getItem(ENTITY) || 'null')
         if (!users || users.length === 0) {
@@ -40,16 +23,6 @@ export class UserService {
     private _loggedInUser$ = new BehaviorSubject<User>(utilService.loadFromSession(ENTITY_LOGGEDIN_USER))
     public loggedInUser$ = this._loggedInUser$.asObservable()
 
-    // signup(name: string) {
-    //     const newUser: User = {
-    //         name,
-    //         coins: 100,
-    //         moves: []
-    //     }
-
-    //     localStorage.setItem('user', JSON.stringify(newUser))
-    //     this._loggedInUser$.next(newUser)
-    // }
     public signup(name: string) {
         return from(storageService.query<User>(ENTITY)).pipe(
             map(users => users.find(_user => _user.name === name)),
@@ -58,7 +31,6 @@ export class UserService {
                 : from(storageService.post(ENTITY, this._createUser(name)))
             ),
             tap(user =>
-                // this._saveLocalUser(user as User)
                 sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(user)
             )
         )
@@ -78,13 +50,16 @@ export class UserService {
         const loggedInUser = { ...this.getLoggedInUser() }
         loggedInUser.coins -= amount
         loggedInUser.moves.unshift(newMove)
+        loggedInUser.moves = [...loggedInUser.moves]
         console.log('loggedInUser:', loggedInUser)
         return from(storageService.put(ENTITY, loggedInUser)).pipe(
             tap(() => {
-                console.log('from tap')
                 sessionStorage[ENTITY_LOGGEDIN_USER] = JSON.stringify(loggedInUser)
             })
-        ).subscribe()
+        ).subscribe(() => {
+            console.log('this.getLoggedInUser():', this.getLoggedInUser())
+
+        })
     }
 
     getLoggedInUser(): User {
